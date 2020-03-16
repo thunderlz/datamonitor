@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{{ block.super }}
+<li><a href='/'>返回</a>
+<li>查询时间:{{ now }}
+{% endblock %}
+
+{% block body %}
+<hr>
+<li>最近一个交易日上涨的股票有{{stocks.stocks_up_count}}个
+<table>
+    <th>
+    {% for column in stocks.stock_columns %}
+        <td class='uphead'> {{ column }} </td>
+    {% endfor %}
+    </th>
+    {% for index,stock in stocks.stocks_up %}
+        <tr>
+        <td class='upbody'> {{ forloop.counter0 }} </td>
+        {% for item in stock %}
+            <td class='upbody'> {{ item }} </td>
+        {% endfor  %}
+        </tr>
+    {% endfor %}
+</table>
+
+<hr>
+<li>最近一个交易日下跌的股票有{{stocks.stocks_down_count}}个
+<table>
+    <th>
+    {% for column in stocks.stock_columns %}
+        <td class='downhead'> {{ column }} </td>
+    {% endfor %}
+    </th>
+    {% for index,stock in stocks.stocks_down %}
+        <tr>
+        <td class='downbody'> {{ forloop.counter0 }} </td>
+        {% for item in stock %}
+            <td class='downbody'> {{ item }} </td>
+        {% endfor  %}
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
