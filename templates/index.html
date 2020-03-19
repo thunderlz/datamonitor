@@ -6,7 +6,7 @@
     <br>
     <h2><p>欢迎访问逗你玩网站，现在时间是{{ now }},本网站正在建设中。。。</h2>
     <ul>
-        <li> <h1>请点击查看最近一个交易日的<a href='/stock'>股票</a>数据</h1>
+        <li> <h1>请点击查看最近一个交易日的<a href={% url 'stock' %}>股票</a>数据</h1>
         <li> <h1>请点击查看<a href='/flight'>航班</a>价格数据</h1>
         <li> <h1>请点击进入<a href='/admin'>管理</a>页面</h1>
         <li> <h1>请点击进入<a href={% url 'getmeta' %}>元数据 </a>页面</h1>
