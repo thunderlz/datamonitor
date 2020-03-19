@@ -19,7 +19,7 @@ from datamonitor import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stock/',include('stockmonitor.urls'),name='stock'),
+    path('stock/',include('stockmonitor.urls')),
     path('',views.index,name='index'),
     path('getmeta',views.getmeta,name='getmeta'),
 ]
