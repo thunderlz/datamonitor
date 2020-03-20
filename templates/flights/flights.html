@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block header %}
+{{block.super}}
+{% comment %} 当前查询参数{{flights.queryparam}}。。。 {% endcomment %}
+<form action={% url 'flights' %} method="post">
+    {% csrf_token %}
+    查询日期：<input type="text" name="querydate" value={{flights.queryparam.queryday}}><br>
+    起飞机场：<input type="text" name="depport" value={{flights.queryparam.depport}}><br>
+    到达机场：<input type="text" name="arrport" value={{flights.queryparam.arrport}}><br>
+    起飞日期：<input type="text" name="depdate" value={{flights.queryparam.depdate}}><br>
+    <input type="submit" value="确定">
+</form>
+{% endblock header %}
+
+
+
+{% block body %}
+<li>查询到{{flights.flights_count}}个航班
+<table>
+    <th>
+    {% for column in flights.flights_columns %}
+        <td class='uphead'> {{ column }} </td>
+    {% endfor %}
+    </th>
+    {% for index,flight in flights.flights %}
+        <tr>
+        <td class='upbody'> {{ forloop.counter0 }} </td>
+        {% for item in flight %}
+            <td class='upbody'> {{ item }} </td>
+        {% endfor  %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock body %}
