@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<li>查询到{{flights.flights_count}}个航班
+<table>
+    <th>
+    {% for column in flights.flights_columns %}
+        <td class='uphead'> {{ column }} </td>
+    {% endfor %}
+    </th>
+    {% for index,flight in flights.flights %}
+        <tr>
+        <td class='upbody'> {{ forloop.counter0 }} </td>
+        {% for item in flight %}
+            <td class='upbody'> {{ item }} </td>
+        {% endfor  %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock body %}
