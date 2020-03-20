@@ -9,7 +9,7 @@ engine=create_engine('mysql+pymysql://root:751982leizhen@192.168.31.199:3306/lei
 
 # Create your views here.
 
-def stock(request):
+def stocklastday(request):
     # return HttpResponse('收到请求！')
 
     #直接查询数据,查询最后一个交易日的所有股票信息
@@ -24,3 +24,7 @@ def stock(request):
     stock={'stocks_up':df_up.iterrows(),'stocks_down':df_down.iterrows(),'stock_columns':df.columns,'stocks_up_count':df_up.shape[0],'stocks_down_count':df_down.shape[0]}
     datadic={'title':'股票信息','now':datetime.now().strftime('%y年%m月%d日%H时%M分%S秒'),'stocks':stock}
     return render(request,'stockmonitor/stock.html',context=datadic)
+
+
+def stocklist(request):
+    return render(request,'stockmonitor/stocklist.html')

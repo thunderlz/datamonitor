@@ -2,8 +2,7 @@
 
 
 {% block body %}
-<li><a href={% url 'index' %}>返回</a><hr>
-{% for k,v in request.META.items %}
-    {{ k }}= {{ v }}<br>
-{% endfor %}
+    {% for k,v in request.META.items %}
+        {{ k }}= {{ v }}<br>
+    {% endfor %}
 {% endblock body %}

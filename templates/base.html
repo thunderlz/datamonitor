@@ -11,14 +11,17 @@
 </style>
 
 <script>
-function print()
-{
-    document.write('这是通过javascript输出的数据')
-}
+function myfunc() {
+
+    doument.write("this is a javascript")
+}    
 </script>
+
 {% block header %}
 <div height=500>
     <img src={% static '/img/label.jpg' %}>
+    <li><a href={% url 'index' %}>返回主页</a>
+    <li>现在时间是:{{ now }}
 </div>
 {% endblock %}
 
@@ -27,9 +30,9 @@ function print()
 {% endblock %}
 
 {% block footer %}
-<p>
 <script>
-    print()
+    myfunc()
 </script>
+
 {% comment %} <img src={% static '/label.jpg' %}> {% endcomment %}
 {% endblock %}

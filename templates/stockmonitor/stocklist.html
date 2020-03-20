@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{{ block.super }}
+
+<li><a href={% url 'stocklastday' %}>最近一个交易日</a><hr>
+{% endblock %}
+
+
+{% block body %}
+这是一个展示股票列表的:
+{% endblock  %}

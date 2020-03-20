@@ -18,5 +18,6 @@ from django.urls import path
 from stockmonitor import views
 
 urlpatterns = [
-    path('', views.stock,name='stock'),
+    path('stocklastday/', views.stocklastday,name='stocklastday'),
+    path('', views.stocklist,name='stocklist'),
 ]
