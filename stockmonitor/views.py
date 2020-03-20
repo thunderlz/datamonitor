@@ -39,7 +39,6 @@ def stock(request,ts_code):
     , sd.pre_closeprice 前一交易日收盘价 , sd.changeprice 涨跌价 , sd.pct_chg 涨跌 , sd.vol 交易量 , sd.amount 交易额 
      from stocksdaily sd left join stocklist sl on sd.ts_code = sl.ts_code where sl.ts_code="{}" order by sd.trade_date desc'''.format(ts_code)
     df=pd.read_sql(sql,con=engine)
-    print(df.shape[0])
     stocks={'stocks':df.iterrows(),'stock_columns':df.columns,'stock_count':df.shape[0]}
     datadic={'stocks':stocks}
     return render(request,'stockmonitor/stock.html',context=datadic)

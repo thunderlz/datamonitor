@@ -11,10 +11,17 @@
     </th>
     {% for index,stock in stocks.stocks %}
         <tr>
-            <td class='upbody'> {{ forloop.counter0 }} </td>
-            {% for item in stock %}
-                <td class='upbody'> {{ item }} </td>
-            {% endfor  %}
+            {% if stock.12 > 0 %}
+                <td class='upbody'> {{ forloop.counter0 }} </td>
+                {% for item in stock %}
+                    <td class='upbody'> {{ item }} </td>
+                {% endfor  %}
+            {% else %}
+                <td class='downbody'> {{ forloop.counter0 }} </td>
+                {% for item in stock %}
+                    <td class='downbody'> {{ item }} </td>
+                {% endfor  %}
+            {% endif %}
         </tr>
     {% endfor %}
 </table>
