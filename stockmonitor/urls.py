@@ -20,4 +20,5 @@ from stockmonitor import views
 urlpatterns = [
     path('stocklastday/', views.stocklastday,name='stocklastday'),
     path('', views.stocklist,name='stocklist'),
+    path('stock/<str:ts_code>',views.stock,name='stock')
 ]

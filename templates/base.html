@@ -29,7 +29,8 @@ function myfunc() {
 <div height=500>
     <img src={% static '/img/label.jpg' %}>
     <li><a href={% url 'index' %}>返回主页</a>
-
+    <li><a href="javascript:history.go(-1);">反上一页</a>
+    <hr>
 </div>
 {% endblock %}
 

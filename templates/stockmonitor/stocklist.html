@@ -2,11 +2,19 @@
 
 {% block header %}
 {{ block.super }}
-
-<li><a href={% url 'stocklastday' %}>最近一个交易日</a><hr>
 {% endblock %}
 
 
 {% block body %}
-这是一个展示股票列表的:
+股票列表的,共有{{stock_count}}只股票:
+<li><a href={% url 'stocklastday' %}>最近一个交易日</a>
+
+<ul>
+    {% for index,stock in stocklist %}
+        {% if index|divisibleby:15 %}
+            <li>
+        {% endif %}
+        <a href={% url 'stock' stock.0 %}> {{ stock.2 }} </a>
+    {% endfor %}
+</ul>
 {% endblock  %}

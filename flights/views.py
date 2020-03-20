@@ -17,9 +17,9 @@ def todayflights(request):
         depport=request.POST.get('depport')
         arrport=request.POST.get('arrport')
         depdate=request.POST.get('depdate')
-    sql='''select airLine  ,arrDate ,arrPort ,arrTime ,arrivalTerminal ,codeShare ,codeShareInfo ,
-    depDate ,depPort ,depTime ,departureTerminal ,flightNo ,meal ,plane ,rate 
-    ,timeDuringFlight ,lowprice ,querydate from flights 
+    sql='''select airLine 航空公司,arrDate 降落日期,arrPort 降落机场,arrTime 降落时间,arrivalTerminal 到达航站楼,codeShare 是否共享,codeShareInfo 共享航班号,
+    depDate 起飞日期,depPort 起飞机场,depTime 起飞时间,departureTerminal 起飞航站楼,flightNo 航班号,meal 是否餐食,plane 飞机型号,rate 准点率
+    ,timeDuringFlight 飞行时间,lowprice 最低价,querydate 查询日期 from flights 
     where querydate like "{}%%" and depport like "%%{}%%" and arrport like "%%{}%%" and depdate like "%%{}%%" '''.format(queryday,depport,arrport,depdate)
 
     df=pd.read_sql(sql,con=engine)
