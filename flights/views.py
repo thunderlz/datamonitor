@@ -11,7 +11,7 @@ def todayflights(request):
         queryday=datetime.now().strftime('%Y%m%d')
         depport=''
         arrport=''
-        depdate=''
+        depdate=datetime.now().strftime('%Y%m%d')
     else:
         queryday=request.POST.get('querydate')
         depport=request.POST.get('depport')
