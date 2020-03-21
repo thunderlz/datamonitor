@@ -2,7 +2,7 @@ from django.shortcuts import render
 from sqlalchemy import create_engine
 import pandas as pd
 from datetime import datetime
-engine=create_engine('mysql+pymysql://root:751982leizhen@192.168.31.199/saflights')
+engine=create_engine('mysql+pymysql://root:751982leizhen@192.168.31.200/saflights')
 
 # Create your views here.
 

@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 
 
-engine=create_engine('mysql+pymysql://root:751982leizhen@192.168.31.199:3306/leizquant')
+engine=create_engine('mysql+pymysql://root:751982leizhen@192.168.31.200:3306/leizquant')
 
 # Create your views here.
 
