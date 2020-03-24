@@ -5,6 +5,9 @@ from django.http import HttpResponse
 def videolog(request):
     try:
         with open('/mnt/data1/micam/xiaomi_camera_videos/log.txt') as f:
-            return HttpResponse(f.read().replace('\n','<br>'))
+            # return HttpResponse(f.read().replace('\n','<br>'))
+            log=f.read().replace('\n','<br>')
+            datadic={'log':log}
+            render(request,'videomonitor/log.html',datadic)
     except:
         return HttpResponse('找不到这个文件。。。')
