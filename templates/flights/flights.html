@@ -25,7 +25,7 @@
     </th>
     {% for index,flight in flights.flights %}
         <tr>
-        <td class='upbody'> {{ forloop.counter0 }} </td>
+        <td class='upbody'> {{ forloop.counter }} </td>
         {% for item in flight %}
             <td class='upbody'> {{ item }} </td>
         {% endfor  %}
