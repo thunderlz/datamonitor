@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'lungsdata',
     'flights',
     'videomonitor',
+    'moneyrecord',
 ]
 
 MIDDLEWARE = [
