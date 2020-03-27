@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% comment %} {% for allmoney in allmoneys %}
+    <ul>
+    <li>{{allmoney.time}} {{allmoney.money}} {{allmoney.cause}} {{allmoney.degree}} {{allmoney.comment}}</li>
+    {% endfor %}
+    {{allmoney.key}}
+
+    <li>{{ detailmoney.filter(allmoney_id=allmoney.key)}}
+    </ul> 
+
+    {% endcomment %}
+
+    {% comment %} {% for detailmoney in detailmoneys %}
+    <ul>
+    <li> {{detailmoney.allmoney.id}} {{detailmoney.allmoney.time}} {{detailmoney.allmoney.money}} {{detailmoney.allmoney.cause}}</li>
+    <li>{{detailmoney.allmoney.id}} {{detailmoney.jingdong}} {{detailmoney.zhifubao}} {{detailmoney.huabei}} </li>
+    </ul> 
+    <hr> 
+    {% endfor %}{% endcomment %}
+
+    {% for allmoney in allmoneys %}
+    <ul>
+    <p class=upbody>{{allmoney.time}} {{allmoney.money}} {{allmoney.cause}} {{allmoney.degree}} {{allmoney.comment}}</p>
+        {% for detailmoney in detailmoneys %}
+            {% ifequal detailmoney.allmoney_id allmoney.id %}
+            <li class=downbody> {{detailmoney.allmoney.id}} {{detailmoney.jingdong}} {{detailmoney.zhifubao}} {{detailmoney.huabei}}  </li>
+            {% endifequal %}
+        {% endfor %}
+
+    </ul> 
+    {% endfor %}
+
+{% endblock body %}
