@@ -1,3 +1,8 @@
+
+<style type="text/css">
+    .stock {color:#dd8383;font-size: 1.5em}
+</style>
+
 {% extends 'base.html' %}
 
 {% block header %}
@@ -11,10 +16,30 @@
 
 <ul>
     {% for index,stock in stocklist %}
-        {% if index|divisibleby:15 %}
+        {% if index|divisibleby:10 %}
             <li>
         {% endif %}
-        <a href={% url 'stock' stock.0 %}> {{ stock.2 }} </a>
+        <a href={% url 'stock' stock.0 1 %} class = 'stock'> {{ stock.2 }} </a>
     {% endfor %}
 </ul>
 {% endblock  %}
+
+{% block footer %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; 第一页</a>
+                <a href="?page={{ page_obj.previous_page_number }}">上一页</a>
+            {% endif %}
+
+            <span class="current">
+                第 {{ page_obj.number }}页*共{{ page_obj.paginator.num_pages }}页
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">下一页</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">最后一页 &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock footer %}

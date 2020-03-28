@@ -1,5 +1,4 @@
 {% load static %}
-<title>{{ title }}</title>
 <style type="text/css">
     p {color:#008080;font-size: 1.5em}
     img { width:100%;height:200}
@@ -26,6 +25,7 @@
 </script>
 
 {% block header %}
+<title>{{ title }}</title>
 <body >
     <div height=500 width=1000> 
         <img src={% static '/img/label.jpg' %}>

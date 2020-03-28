@@ -2,23 +2,23 @@
 
 {% block body %}
 <hr>
-<li>该股票一共有{{stocks.stock_count}}条交易记录。。。
+<li>该股票一共有{{stock.stock_count}}条交易记录。。。
 <table>
     <th>
-    {% for column in stocks.stock_columns %}
+    {% for column in stock.stock_columns %}
         <td class='uphead'> {{ column }} </td>
     {% endfor %}
     </th>
-    {% for index,stock in stocks.stocks %}
+    {% for index,row in stock.stock %}
         <tr>
-            {% if stock.12 > 0 %}
+            {% if row.12 > 0 %}
                 <td class='upbody'> {{ forloop.counter0 }} </td>
-                {% for item in stock %}
+                {% for item in row %}
                     <td class='upbody'> {{ item }} </td>
                 {% endfor  %}
             {% else %}
                 <td class='downbody'> {{ forloop.counter0 }} </td>
-                {% for item in stock %}
+                {% for item in row %}
                     <td class='downbody'> {{ item }} </td>
                 {% endfor  %}
             {% endif %}
@@ -26,3 +26,23 @@
     {% endfor %}
 </table>
 {% endblock body %}
+
+{% block footer %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if stock.page_obj.has_previous %}
+                <a href={% url 'stock' stock.ts_code 1 %}>第一页</a>
+                <a href={% url 'stock' stock.ts_code stock.page_obj.previous_page_number %}>上一页</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ stock.page_obj.number }} of {{ stock.page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if stock.page_obj.has_next %}
+                <a href={% url 'stock' stock.ts_code stock.page_obj.next_page_number %}>下一页</a>
+                <a href={% url 'stock' stock.ts_code stock.page_obj.paginator.num_pages %}>最后一页</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock footer %}

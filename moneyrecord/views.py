@@ -7,7 +7,7 @@ from moneyrecord.models import Allmoney,Detailmoney
 
 def moneyrecord(requests):
     # return HttpResponse('moneyrecord')
-    allmoneys=Allmoney.objects.all()
+    allmoneys=Allmoney.objects.filter(degree__lte=3)
     # print(dir(allmoneys[4]))
     detailmoneys=Detailmoney.objects.all()
     print(detailmoneys[0].allmoney.money)

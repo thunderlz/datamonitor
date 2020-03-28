@@ -14,10 +14,10 @@ class moneyInline(admin.TabularInline):
 
 @admin.register(Allmoney)
 class AllmoneyAdmin(admin.ModelAdmin):
-    list_display = ('time', 'money','createusername')
+    list_display = ('time', 'money','cause','degree','createusername')
     search_fields = ('time', 'money')
     list_filter = ('time', 'money','createuser__username',)
-    inlines=[moneyInline,]
+    inlines=(moneyInline,)
 
 
 # @admin.register(Detailmoney)
