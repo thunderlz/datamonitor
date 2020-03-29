@@ -32,12 +32,11 @@ def stocklastday(request):
 
 
 def stocklist(request):
-    global dfsl_pages
-    print('request_method:'+str(request.GET.get('page')))
+    
+    sql = 'select * from stocklist'
+    df = pd.read_sql(sql, con=engine)
+    dfsl_pages = Paginator(df, 100)
     if request.GET.get('page')==None:
-        sql = 'select * from stocklist'
-        df = pd.read_sql(sql, con=engine)
-        dfsl_pages = Paginator(df, 100)
         dfsl_page = dfsl_pages.get_page(1)
     else:
         dfsl_page = dfsl_pages.get_page(request.GET.get('page'))
