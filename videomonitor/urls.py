@@ -18,5 +18,7 @@ from django.urls import path
 from videomonitor import views
 
 urlpatterns = [
-    path('', views.videolog,name='videolog'),
+    path('videolog', views.videolog,name='videolog'),
+    path('', views.video,name='video'),
+    path('videocheck', views.videocheck,name='videocheck'),
 ]

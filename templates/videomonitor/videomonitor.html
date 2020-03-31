@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<a href={% url 'videolog' %}>日志</a>
+<a href={% url 'videocheck' %}>视频文件检查</a>
+<form action={% url 'video' %} method="get">
+{% csrf_token %}
+<select name='cam'>
+{% for cam_check in  cam_checks %}
+{% if selected_cc_datetime_id == cam_check.id %}
+    <option value={{cam_check.id}} selected>{{cam_check}}</option>
+{% else %}
+    <option value={{cam_check.id}}>{{cam_check}}</option>
+{% endif %}
+{% endfor %}
+</select>
+<input type="submit" value="确定">
+</form>
+当前显示的检查ID:{{selected_cc_datetime_id}}
+<hr>
+{% for video in  page_obj%}
+{{video.cam}} / {{video.cam_hour}} / {{video.cam_filename}}<br>
+{% endfor %}
+{% endblock body %}

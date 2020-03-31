@@ -8,6 +8,7 @@
     .downhead {color:#FFF8DC;background-color:#008080}
     .downbody {color:#008080;background-color:#E6E6FA}
     div {color:#008080;font-size: 1.2em;align=center}
+    .link {font-size: 1em;font-family: "Microsoft YaHei";}
 </style>
 
 <script>
@@ -29,7 +30,7 @@
 <body >
     <div height=500 width=1000> 
         <img src={% static '/img/label.jpg' %}>
-        <li><a href={% url 'index' %}>返回主页</a>    <a href="javascript:history.go(-1);">反上一页</a>
+        <li><a href={% url 'index' %} class=link>返回主页</a>    <a href="javascript:history.go(-1);" class=link>反上一页</a>
         <hr>
     </div>
 </body>

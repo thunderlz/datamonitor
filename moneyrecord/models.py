@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
 
@@ -18,10 +18,10 @@ class Allmoney(models.Model):
 
     class Meta:
         verbose_name = "所有money"
-        # verbose_name_plural = "们"
+        verbose_name_plural = "所有money的列表"
 
     def __str__(self):
-        return str(self.time)
+        return datetime.strftime(self.time,'%Y年%m月%d日%H时%M分')
 
     def get_absolute_url(self):
         return reverse("_detail", kwargs={"pk": self.pk})
@@ -39,10 +39,10 @@ class Detailmoney(models.Model):
 
     class Meta:
         verbose_name = '明细'
-        # verbose_name_plural = _("s")
+        verbose_name_plural = '明细列表'
 
     def __str__(self):
-        return str(self.allmoney)
+        return self.allmoney.__str__()
 
     def get_absolute_url(self):
         return reverse("_detail", kwargs={"pk": self.pk})
