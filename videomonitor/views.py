@@ -7,7 +7,7 @@ import glob
 import pandas as pd
 import socket
 
-if socket.gethostname=='lznbserver':
+if socket.gethostname()=='lznbserver':
     cam_path='/mnt/data1/micam/xiaomi_camera_videos/'
 else:
     cam_path = '/Volumes/micamsdir/xiaomi_camera_videos/'
