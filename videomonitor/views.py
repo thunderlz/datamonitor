@@ -5,9 +5,13 @@ from django.core.paginator import Paginator
 from videomonitor.models import Cam_video, Cam_check
 import glob
 import pandas as pd
+import socket
 
-cam_path = '/Volumes/micamsdir/xiaomi_camera_videos/'
-# cam_path='/mnt/data1/micam/xiaomi_camera_videos/'
+if socket.gethostname=='lznbserver':
+    cam_path='/mnt/data1/micam/xiaomi_camera_videos/'
+else:
+    cam_path = '/Volumes/micamsdir/xiaomi_camera_videos/'
+
 
 
 def getvideofiles(cam_path):
