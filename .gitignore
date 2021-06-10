@@ -3,3 +3,4 @@
 .vscode
 datamonitor_uwsgi.pid
 datamonitor_uwsgi_log.log
+datamonitor_uwsgi.ini
