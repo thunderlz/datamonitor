@@ -3,7 +3,7 @@ from django.http import HttpResponse,JsonResponse
 from sqlalchemy import create_engine
 import pandas as pd
 import json
-engine=create_engine('mysql+pymysql://root:751982leizhen@192.168.31.200/lungsdata')
+engine=create_engine('mysql+pymysql://root:751982leizhen@localhost/lungsdata')
 # Create your views here.
 
 def lungsdata(request):
