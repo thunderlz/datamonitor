@@ -6,7 +6,7 @@ import pandas as pd
 from django.core.paginator import Paginator
 
 engine = create_engine(
-    'mysql+pymysql://root:751982leizhen@192.168.31.200:3306/leizquant')
+    'mysql+pymysql://root:751982leizhen@localhost:3306/leizquant')
 
 
 # Create your views here.
